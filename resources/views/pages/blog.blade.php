@@ -12,9 +12,21 @@
                class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ !request('category') ? 'border-accent bg-accent text-white' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
                 All
             </a>
+            <a href="{{ route('blog') }}"
+               class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ !request('category') ? 'border-accent bg-white/70 text-muted' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
+                Sport
+            </a>
+            <a href="{{ route('blog') }}"
+               class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ !request('category') ? 'border-accent bg-white/70 text-muted' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
+                Learn
+            </a>
+            <a href="{{ route('blog') }}"
+               class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ !request('category') ? 'border-accent bg-white/70 text-muted' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
+                Help
+            </a>
             @foreach(collect($categories ?? []) as $cat)
                 <a href="{{ route('blog', ['category' => $cat->slug]) }}"
-                   class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ request('category') === $cat->slug ? 'border-accent bg-accent text-white' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
+                   class="rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] transition-colors {{ request('category') === $cat->slug ? 'border-white/70 bg-accent text-white' : 'border-ink/10 bg-white text-charcoal hover:border-accent hover:text-accent' }}">
                     {{ $cat->name }}
                 </a>
             @endforeach
