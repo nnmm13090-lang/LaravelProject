@@ -1,10 +1,17 @@
 @extends('layouts.app')
 
 @section('title', 'Home - ' . config('app.name', 'The Desk'))
+<style>
+    #blog{
+        background-image: url(https://thumbs.dreamstime.com/b/blog-information-website-concept-workplace-background-text-view-above-127465079.jpg?w=992);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 
 @section('content')
 
-<section class="relative overflow-hidden bg-[#f4ecdf] px-6 py-16 lg:px-10 lg:py-15">
+<section class="relative overflow-hidden bg-[#d6cec1] px-6 py-16 lg:px-10 lg:py-15">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.92),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(181,69,27,0.12),_transparent_28%),linear-gradient(135deg,#f8f3eb_0%,#efe0cd_52%,#e6d1ba_100%)]"></div>
     <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#b5451b]/10 blur-3xl"></div>
     <div class="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-[#2c5f8a]/10 blur-3xl"></div>
@@ -48,7 +55,7 @@
 
         <div class="relative">
             <div class="overflow-hidden rounded-[2rem] border border-white/70 bg-white/55 shadow-[0_24px_70px_rgba(89,64,42,0.12)] backdrop-blur-sm">
-                <div class="relative h-[460px] bg-[radial-gradient(circle_at_22%_18%,_rgba(44,95,138,0.28),_transparent_20%),radial-gradient(circle_at_78%_22%,_rgba(181,69,27,0.28),_transparent_18%),linear-gradient(145deg,#f1e2cf_0%,#dfc5ab_42%,#a77654_100%)]">
+                <div id="blog" class="relative h-[460px]">
                     <div class="absolute inset-0 opacity-25" style="background-image: linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px); background-size: 32px 32px;"></div>
 
                     <div class="absolute left-6 top-6 rounded-full bg-white/70 px-4 py-2 text-[0.62rem] font-bold uppercase tracking-[0.22em] text-accent2 backdrop-blur-sm">
@@ -69,17 +76,19 @@
 
 <section class="bg-[#fbf7f0] px-6 py-16 lg:px-10">
     <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="rounded-[2rem] bg-[#1c1815] p-8 text-ivory shadow-[0_24px_60px_rgba(31,26,23,0.12)]">
-            <p class="text-[0.68rem] font-bold uppercase tracking-[0.28em] text-gold">About The Desk</p>
-            <h2 class="mt-4 font-display text-4xl font-bold tracking-tight">Writing with more intention.</h2>
-            <p class="mt-5 text-base leading-8 text-[#d1c5b7]">
-                This template is designed to feel like a calm publication rather than a busy feed. Big headlines, generous spacing, and a clearer reading path.
-            </p>
-            <a href="{{ route('about') }}"
-               class="mt-8 inline-flex rounded-full border border-white/15 px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-ivory transition-colors hover:border-gold hover:text-gold">
-                Read About
-            </a>
-        </div>
+    <div class="relative rounded-[2rem] overflow-hidden bg-[#1c1815] shadow-[0_24px_60px_rgba(31,26,23,0.12)]">
+        
+        <img 
+            class="w-full h-full object-cover" 
+            src="https://veracontent.com/wp-content/uploads/2020/10/blog-images-ultimate-guide.jpeg" 
+            alt=""
+        >
+        <a href="{{ route('about') }}"
+           class="absolute bottom-4 left-4 z-10 rounded-full border border-white/15 px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-ivory bg-black/40 hover:border-gold hover:text-gold">
+            Read About
+        </a>
+        
+    </div>
 
         <div class="grid gap-5 md:grid-cols-2">
             <div class="rounded-[1.75rem] border border-rule bg-white p-6 shadow-sm">
