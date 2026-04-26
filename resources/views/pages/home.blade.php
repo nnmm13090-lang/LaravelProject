@@ -140,33 +140,57 @@
 
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             @forelse($recentPosts as $i => $post)
-                <a href="{{ route('post', $post->slug) }}"
-                   class="group overflow-hidden rounded-[1.75rem] border border-white/60 bg-white shadow-[0_16px_45px_rgba(89,64,42,0.08)] transition-transform hover:-translate-y-1">
-                    <div class="relative h-56 bg-gradient-to-br {{ $thumbs[$i % 6] }}">
-                        @if($post->cover_image)
-                            <img src="{{ asset('storage/'.$post->cover_image) }}" alt="{{ $post->title }}"
-                                 class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-                        @endif
-                    </div>
-                    <div class="p-6">
-                        <p class="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-accent2">
-                            {{ optional($post->published_at)->format('F j, Y') }}
-                        </p>
-                        <h3 class="mt-3 font-display text-2xl font-bold leading-tight text-ink">{{ $post->title }}</h3>
-                        <p class="mt-3 text-sm leading-7 text-muted">{{ $post->excerpt }}</p>
-                    </div>
-                </a>
-            @empty
-                @for($i = 0; $i < 3; $i++)
-                    <div class="overflow-hidden rounded-[1.75rem] border border-white/60 bg-white shadow-[0_16px_45px_rgba(89,64,42,0.08)]">
-                        <div class="h-56 bg-gradient-to-br {{ $thumbs[$i % 6] }}"></div>
-                        <div class="p-6">
-                            <p class="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-accent2">Coming Soon</p>
-                            <h3 class="mt-3 font-display text-2xl font-bold leading-tight text-ink">A new essay is on the way.</h3>
-                            <p class="mt-3 text-sm leading-7 text-muted">This redesigned template is ready for your real posts as soon as you connect your content.</p>
+                    <a href="{{ route('post', $post->slug) }}"
+                       class="group flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-white shadow-[0_16px_45px_rgba(89,64,42,0.08)] transition-transform hover:-translate-y-1">
+                        <div class="relative h-56 bg-gradient-to-br {{ $thumbs[$i % 6] }} flex items-center justify-center">
+                            @if($post->cover_image)
+                                <img src="{{ asset('storage/'.$post->cover_image) }}" alt="{{ $post->title }}"
+                                     class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            @else
+                                <span class="text-5xl text-white/60">🖼️</span>
+                            @endif
+                            @if($post->category)
+                                <span class="absolute top-4 left-4 bg-accent2/90 text-white text-xs font-bold px-3 py-1 rounded-full z-10">{{ $post->category->name }}</span>
+                            @endif
                         </div>
-                    </div>
-                @endfor
+                        <div class="p-6 flex-1 flex flex-col">
+                            <p class="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-accent2 mb-2">
+                                {{ optional($post->published_at)->format('F j, Y') }}
+                            </p>
+                            <h3 class="font-display text-2xl font-bold leading-tight text-ink mb-2">{{ $post->title }}</h3>
+                            <p class="text-sm leading-7 text-muted mb-4">{{ $post->excerpt }}</p>
+                            <div class="flex items-center mt-auto pt-2 justify-between text-xs text-gray-500">
+                                <div class="flex items-center gap-2">
+                                    <span class="bg-gray-200 rounded-full w-7 h-7 flex items-center justify-center font-bold text-[0.9rem]">
+                                        {{ strtoupper(Str::substr($post->author->name ?? 'AU', 0, 2)) }}
+                                    </span>
+                                    <span>{{ $post->author->name ?? 'Author' }}</span>
+                                </div>
+                                <span>{{ $post->reading_time ?? '3' }} min read</span>
+                            </div>
+                        </div>
+                    </a>
+            @empty
+                    @for($i = 0; $i < 3; $i++)
+                        <div class="flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-white shadow-[0_16px_45px_rgba(89,64,42,0.08)]">
+                            <div class="h-56 bg-gradient-to-br {{ $thumbs[$i % 6] }} flex items-center justify-center">
+                                <span class="text-5xl text-white/60">🖼️</span>
+                                <span class="absolute top-4 left-4 bg-accent2/90 text-white text-xs font-bold px-3 py-1 rounded-full z-10">Coming Soon</span>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <p class="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-accent2 mb-2">Upcoming</p>
+                                <h3 class="font-display text-2xl font-bold leading-tight text-ink mb-2">A new essay is on the way.</h3>
+                                <p class="text-sm leading-7 text-muted mb-4">This redesigned template is ready for your real posts as soon as you connect your content.</p>
+                                <div class="flex items-center mt-auto pt-2 justify-between text-xs text-gray-400">
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-gray-200 rounded-full w-7 h-7 flex items-center justify-center font-bold text-[0.9rem]">AU</span>
+                                        <span>Author</span>
+                                    </div>
+                                    <span>3 min read</span>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
             @endforelse
         </div>
     </div>

@@ -84,6 +84,8 @@
         @endif
 
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            </div>
+
             @forelse($posts as $i => $post)
                 @continue($loop->first)
                 <a href="{{ route('post', $post->slug) }}"
