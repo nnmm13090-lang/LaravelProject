@@ -69,7 +69,6 @@
                             @enderror
                         </div>
 
-                        <div class="grid gap-5 sm:grid-cols-2">
                             <div>
                                 <label for="password" class="mb-2 block text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted">
                                     Password
@@ -80,15 +79,6 @@
                                     <p class="mt-2 text-xs text-accent">{{ $message }}</p>
                                 @enderror
                             </div>
-
-                            <div>
-                                <label for="password_confirmation" class="mb-2 block text-[0.62rem] font-bold uppercase tracking-[0.2em] text-muted">
-                                    Confirm
-                                </label>
-                                <input id="password_confirmation" type="password" name="password_confirmation" required
-                                       class="w-full rounded-2xl border border-[#ddcfbf] bg-white px-5 py-4 text-sm text-ink outline-none transition-colors focus:border-accent2">
-                            </div>
-                        </div>
 
                         <div class="rounded-2xl bg-[#f6ede1] px-4 py-3 text-sm text-charcoal">
                             By creating an account, you agree to receive occasional updates from The Desk.

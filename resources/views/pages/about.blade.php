@@ -12,10 +12,10 @@
 
         {{-- Portrait --}}
         <div class="lg:sticky lg:top-28">
-            <div class="relative bg-gradient-to-br from-ink to-charcoal border-4 border-ink aspect-[3/4] overflow-hidden"
-                 style="background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 0,transparent 20px), linear-gradient(160deg,#1a1714 0%,#3a2c1e 100%)">
+            <div class="relative from-ink to-charcoal border-4 border-ink aspect-[3/4] overflow-hidden"
+                 style="background-image: url(https://st.depositphotos.com/2309453/3449/i/450/depositphotos_34490345-stock-photo-confident-casual-unshaven-young-man.jpg); background-repeat: no-repeat; background-size: cover;">
                 <span class="absolute bottom-4 right-4 font-display text-8xl font-bold text-white/[0.07] leading-none select-none">JD</span>
-                <span class="absolute bottom-5 left-5 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-gold">Author & Writer</span>
+                <span class="absolute bottom-5 left-5 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white">Author & Writer</span>
             </div>
 
             {{-- Stats --}}
